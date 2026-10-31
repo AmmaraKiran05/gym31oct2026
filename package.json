@@ -1,0 +1,46 @@
+{
+  "name": "pulsefit",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/check-env.js && concurrently --kill-others-on-fail -n db,api,web -c magenta,green,cyan \"node scripts/local-db.js\" \"node --experimental-fetch --no-warnings server/dev-api.js\" \"vite\"",
+    "db:setup": "node scripts/check-env.js && node scripts/db-setup.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:e2e": "vite build && playwright test",
+    "test:all": "npm run test && npm run test:e2e",
+    "lighthouse": "node scripts/lighthouse.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "0.9.5",
+    "bcryptjs": "2.4.3",
+    "canvas-confetti": "1.9.3",
+    "framer-motion": "11.2.10",
+    "jose": "4.15.9",
+    "lucide-react": "0.395.0",
+    "pg": "8.11.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.23.1",
+    "recharts": "2.15.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.8.2",
+    "@playwright/test": "1.39.0",
+    "@vitejs/plugin-react": "4.2.1",
+    "autoprefixer": "10.4.19",
+    "concurrently": "8.2.2",
+    "dotenv": "16.4.5",
+    "embedded-postgres": "16.10.0-beta.15",
+    "express": "4.19.2",
+    "lighthouse": "10.4.0",
+    "postcss": "8.4.38",
+    "supertest": "6.3.4",
+    "tailwindcss": "3.4.4",
+    "vite": "4.5.3",
+    "vitest": "0.34.6",
+    "ws": "8.18.0"
+  }
+}
